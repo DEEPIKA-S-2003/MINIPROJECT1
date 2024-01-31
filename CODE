@@ -1,0 +1,40 @@
+                    addPatient(&newPatient);
+
+                    // Add the new patient to the next available slot
+                    int newIndex = patientsCount[hospitalIndex];
+                    patients[hospitalIndex][newIndex] = newPatient;
+                    patientsCount[hospitalIndex]++; // Increase the count of patients for the specified hospital
+                }
+                else
+                {
+                    printf("Hospital is already at maximum patient capacity.\n");
+                }
+            }
+            else
+            {
+                printf("Invalid hospital index\n");
+            }
+            break;
+            case 10:
+            printf("Exiting the program.\n");
+            break;
+
+        default:
+            printf("Invalid choice. Please enter a valid option.\n");
+        }
+
+    } while (choice != 10);
+free(hospitals);
+
+    for (int i = 0; i < n; i++)
+    {
+        free(patients[i]);
+    }
+    free(patients);
+
+    free(patientsCount);
+
+    return 0;
+}
+
+
